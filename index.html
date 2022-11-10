@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DynamicForms</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <button class="btn" id="singleline-text"><i class="fa fa-text-width"><b>Single Line Text</b></i></button>
+            <button class="btn" id="paragraph-text"><i class="fa fa-paragraph"></i><b>Paragraph Text</b></button>
+            <button class="btn" id="dropdown"><i class="fa fa-caret-square-o-down"></i><b>Dropdown</b></button>
+            <button class="btn" id="multiple-choice"><i class="fa fa-bars"></i><b>MultipleChoice</b></button>
+            <button class="btn" id="checkbox"><i class="fa fa-check-square"></i><b>Checkbox</b></button>
+            <button class="btn" id="numbers"><i class="fa fa-hashtag"></i><b>Numbers</b></button>
+            <button class="btn" id="name"><i class="fa fa-user-o"></i><b>Name</b></button>
+            <button class="btn" id="email"><i class="fa fa-envelope-o"></i><b>Email</b></button>
+            <button class="btn" id="number-slider"><i class="fa fa-sliders"><b>Number Slider</b></i></button>
+            <button class="btn" id="re-Captcha"><i class="fa fa-google"></i><b>reCAPTCHA</b></button>
+            <button class="btn" id="gdpr-agreement"><i class="fa fa-check-circle-o"></i><b>GDPR Agreement</b></button>
+            <span>
+                <button class="cancel" id="cancel-button">CANCEL</button>
+            </span>
+            <span>
+                <button class="submit" id="submit-button" onclick="location.href='createForm.html';">SUBMIT</button>
+            </span>
+        </div>
+        <div class="modal" id="myModal">
+            <div class="modal-content">
+                <span id="close" class="close">&times;</span>
+                <form id="form">
+                    <table class="table" cellpadding="5" cellspacing="5">
+                        <tr>
+                            <td class="text"><b>Type</b></td>
+                            <td>
+                                <select id="type" onchange="selectType()"><b>Type</b>
+                                    <option value="text">Text</option>
+                                    <option value="select">Select</option>
+                                    <option value="checkbox">Checkbox</option>
+                                    <option value="range">Range</option>
+                                    <option value="email">Email</option>
+                                    <option value="tel">Number</option>
+                                    <option value="radio">Radio</option>
+                        <!-- </select> -->
+                            </td>
+                            </td>
+                        </tr>
+                        <tr id="label">
+                            <td class="text"><b>Label</b></td>
+                            <td><input class="input-label" type="text" name="label"></td>
+                        </tr>
+                        <tr id="placeholder">
+                            <td class="text"><b>PlaceHolder</b></td>
+                            <td><input class="input-placeholder" id="placeholder" name="placeholder"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="drop-down">
+                                    <span>
+                                    <!-- <input type="text" class="drop-down" name="dropdown-values" placeholder="Add Option Values" id="options1"> -->
+                                    <b>Enter Options</b>
+                                    <span><input id="add-button" type="button" value="+" onclick="addOptionValues()"></span>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td>
+                                <div id="radio">
+                                    <span>
+                                    <!-- <input type="text" class="drop-down" name="dropdown-values" placeholder="Add Option Values" id="options1"> -->
+                                    <b>Enter Multiple Choices</b>
+                                    <span><input id="add-button" type="button" value="+" onclick="addRadioValues()"></span>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="required">
+                            <td class="text"><b>Required</b></td>
+                            <td><input id="required-checkbox" type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="slidecontainer" id="slider">
+                                    <p><b>Width</b></p>
+                                    <p id="rangeValue"></p>
+                                    <div class="range">
+                                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange"oninput="rangeValue.innerText = this.value">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="minWidth">
+                            <td class="text"><b>Min Width</b></td>
+                            <td><input type="text" class="min-width" name="minWidth"></td>
+                        </tr>
+                        <tr id="maxWidth">
+                            <td class="text"><b>Max Width</b></td>
+                            <td><input type="text" class="max-width" name="maxWidth"></td>
+                        </tr>
+                        <!-- <tr>
+                            <td>
+                                <input type="range" class="input" id="value" value="25" step="25" min="0" max="100" oninput="outputUpdate(value)">
+                                <output for=value class="output" id="output">25</output>
+                            </td>
+                        </tr> -->
+                        <tr id="submitCancel">
+                            <td class="add-button">
+                                <input type="button" value="ADD">
+                            </td>
+                    <!-- </tr>
+                    <tr> -->
+                            <!-- <td class="cancel-button">
+                                <input type="button" value="CANCEL" onclick="close()">
+                            </td> -->
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <script src="form.js"></script>
+    </body>
+</html>
